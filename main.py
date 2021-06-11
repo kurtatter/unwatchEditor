@@ -88,8 +88,10 @@ def handle_keypress(event):
 
     try:
         char_code = ord(event.char)
-        # print(event.char)  # отбражает какую клавишу мы нажимали, может быть полезна при тестировании кода
+        # print(event)  # отбражает какую клавишу мы нажимали, может быть полезна при тестировании кода
         clear_chars.append(event.char)
+        print(clear_chars)
+
         if lbl_color["bg"] == "red":
             lbl_color["bg"] = "green"
         if char_code in correct_symbols:
@@ -105,6 +107,8 @@ def handle_keypress(event):
 
 def ctrlo(event):
     print(event.keycode)  # отображает код комбинации с использование Ctrl
+    if event.keycode == 67:
+        print("6&Seven")
     # global select_all
     # select_all = False
 
@@ -123,6 +127,21 @@ def select_all_text(event):
     txt_text.mark_set(tk.INSERT, "1.0")
     txt_text.see(tk.INSERT)
     return 'break'
+
+# function for debug, показывает текст который выделен а также остальной текст без него
+# def print_selection():
+#
+#     selection = txt_text.tag_ranges(tk.SEL)
+#
+#     if selection:
+#         content = txt_text.get(*selection)
+#         print(txt_text.dlineinfo("1.0"))
+#         ccc = list(txt_text.get("1.0", tk.END))
+#         first_index = int(selection[0].string.split(".")[1])
+#         last_index = int(selection[1].string.split(".")[1])
+#         del ccc[first_index:last_index]
+#         print(content)
+#         print("".join(ccc))
 
 
 def set_word_count(event):
@@ -161,5 +180,9 @@ lbl_color.pack(side=tk.RIGHT, padx=10)
 
 lbl_word_count = tk.Label(text="Слов: 0", fg="white", bg="black", master=frm_down)
 lbl_word_count.pack()
+
+# Button for debug
+# btn_print_select = tk.Button(text="Print Select", command=print_selection)
+# btn_print_select.pack()
 
 window.mainloop()
