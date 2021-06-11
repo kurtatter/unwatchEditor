@@ -104,7 +104,7 @@ def handle_keypress(event):
 
 
 def ctrlo(event):
-    print(event.keycode)  # отображает код комбинации с использование Ctrl
+    # print(event.keycode)  # отображает код комбинации с использование Ctrl
     # global select_all
     # select_all = False
 
@@ -129,7 +129,7 @@ def set_word_count(event):
     print(get_count_word(clear_chars))
 
 
-txt_text = tk.Text(font = ('Georgia' , 13))
+txt_text = tk.Text(font = ('Georgia' , 13), wrap=tk.WORD)
 txt_text.bind("<BackSpace>", delete_last_char)
 
 # обработка нажатия клавиши энтер
