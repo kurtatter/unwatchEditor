@@ -175,9 +175,9 @@ class Article:
 
     def ctrlo(self, event):
         # print(event.keycode)  # отображает код комбинации с использование Ctrl
-        print(self.txt_text.state)
+        # print(self.txt_text.state)
 
-        if event.keycode == 79:
+        if event.keycode == 79 or event.keycode == 32:
             self.show_symbols(event)
 
     select_all = False
@@ -201,9 +201,9 @@ class Article:
             note_name = simpledialog.askstring(title, prompt, parent=self.window)
             all_text = "".join(self.clear_chars)
             current_date = datetime.today().strftime("%d.%m.%Y %H:%M")
-            print(all_text)
+            # print(all_text)
             if note_name:
-                print(note_name)
+                # print(note_name)
                 self.cursor.execute("INSERT INTO article VALUES(?, ?, ?);",
                                     (note_name.strip(), all_text, current_date))
                 self.db.commit()

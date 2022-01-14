@@ -13,7 +13,7 @@ class Window(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("UnWatch")
-        self.iconbitmap(pathlib.Path().cwd().__str__() + "/" + self.ICON_FILE_NAME)
+        # self.iconbitmap(pathlib.Path().cwd().__str__() + "/" + self.ICON_FILE_NAME)
 
         my_font_style = ('Georgia', 13)
         txt_text = tk.Text(font=my_font_style, wrap=tk.WORD)
